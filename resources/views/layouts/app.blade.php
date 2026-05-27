@@ -46,7 +46,7 @@
                     <li>
                         <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                             @csrf
-                            <button type="submit" class="btn-nav btn-outline">Uitloggen</button>
+                            <button type="submit" class="btn-nav btn-outline" style="background: none; border: 1px solid #FFD600; color: #FFD600; padding: 8px 15px; border-radius: 6px; cursor: pointer;">Uitloggen</button>
                         </form>
                     </li>
                 @else

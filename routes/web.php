@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AuthController;
+
 // ==================== PUBLIEKE ROUTES ====================
 
 // Homepagina
@@ -10,12 +12,10 @@ Route::get('/', function () {
 })->name('home');
 
 // Loginpagina (GET: toon het formulier)
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 
 // Login verwerken (POST: verwerk het formulier)
-// Dit wordt later ingevuld als de backend klaar is
-Route::post('/login', function () {
-    // TODO: login logica implementeren
-})->name('login.post');
+Route::post('/login', [AuthController::class, 'login']);
+
+// Uitloggen (POST: beveiligd met CSRF)
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
