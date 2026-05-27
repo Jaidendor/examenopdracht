@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(extract-text \"Examenafspraken v2026 \\(verbeterd\\) 1.docx\")",
+      "Bash(pandoc \"Examenafspraken v2026 \\(verbeterd\\) 1.docx\" -t markdown)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "WebFetch(domain:cominbeeld.nl)",
+      "Bash(vendor/bin/pint routes/web.php --format agent)",
+      "Bash(npm run *)"
+    ]
+  }
+}

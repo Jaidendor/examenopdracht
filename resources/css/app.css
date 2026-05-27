@@ -1,0 +1,305 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* ============================================================
+   GLOBALE STIJLEN - COM in Beeld
+   Kleurenschema: Zwart (#111111), Wit (#FFFFFF), Geel (#FFD600)
+   ============================================================ */
+
+/* ==================== BASIS RESET ==================== */
+/* Zorgt dat alle elementen consistent worden weergegeven */
+*, *::before, *::after {
+    box-sizing: border-box;  /* Padding telt niet mee in de breedte */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    color: #111111;
+    background-color: #ffffff;
+    line-height: 1.5;
+}
+
+/* ==================== NAVIGATIE STIJLEN ==================== */
+
+/* De zwarte navigatiebalk bovenaan */
+.navbar {
+    background-color: #111111; /* Zwart */
+    padding: 0 20px;
+    position: sticky; /* Blijft bovenaan bij scrollen */
+    top: 0;
+    z-index: 100; /* Staat boven andere elementen */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Container die de navbar inhoud centreert en max-breedte geeft */
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px; /* Hoogte van de navbar */
+}
+
+/* Het logo/merknaam links in de navbar */
+.navbar-logo {
+    color: #FFD600; /* Geel logo */
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.navbar-logo:hover {
+    color: #e6c200; /* Iets donkerder geel bij hoveren */
+}
+
+/* De lijst met navigatielinks rechts in de navbar */
+.navbar-links {
+    list-style: none; /* Verwijder opsommingstekens */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Individuele navigatielink */
+.nav-link {
+    color: #cccccc; /* Lichtgrijs */
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #ffffff;          /* Wit bij hoveren */
+    background-color: rgba(255, 255, 255, 0.1); /* Lichte achtergrond */
+}
+
+/* ==================== HAMBURGER MENU (mobiel) ==================== */
+
+/* De drie streepjes knop op mobiel (verborgen op desktop) */
+.hamburger {
+    display: none; /* Standaard verborgen */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Elk streepje van de hamburger */
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+/* ==================== KNOP STIJLEN ==================== */
+/* Gedeelde knoppen die overal in de site gebruikt worden */
+
+/* Basis knop stijl */
+.btn {
+    display: inline-block;
+    padding: 13px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+/* Gele primaire knop (voor de meest belangrijke actie) */
+.btn-primary {
+    background-color: #FFD600;
+    color: #111111;
+    border-color: #FFD600;
+}
+
+.btn-primary:hover {
+    background-color: #e6c200; /* Iets donkerder geel */
+    border-color: #e6c200;
+    transform: translateY(-2px); /* Knop gaat iets omhoog */
+}
+
+/* Transparante secundaire knop met witte rand */
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: #111111;
+    transform: translateY(-2px);
+}
+
+/* Zwarte knop (voor gebruik op gele/witte achtergronden) */
+.btn-dark {
+    background-color: #111111;
+    color: #ffffff;
+    border-color: #111111;
+}
+
+.btn-dark:hover {
+    background-color: #333333;
+    border-color: #333333;
+    transform: translateY(-2px);
+}
+
+/* Navbar knop stijl */
+.btn-nav {
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: #FFD600; /* Gele achtergrond */
+    color: #111111;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-nav:hover {
+    background-color: #e6c200;
+}
+
+/* Transparante knop variant voor navbar */
+.btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #555555;
+    font-size: 0.9rem;
+    padding: 7px 18px;
+}
+
+.btn-outline:hover {
+    border-color: #ffffff;
+}
+
+/* ==================== FOOTER STIJLEN ==================== */
+
+/* De zwarte footer onderaan elke pagina */
+.footer {
+    background-color: #111111;
+    color: #ffffff;
+    padding: 60px 20px 0;
+    margin-top: auto;
+}
+
+/* Container die de footer inhoud centreert */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Drie kolommen naast elkaar */
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+/* Titel in elke footer kolom */
+.footer-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #FFD600; /* Gele kleur voor titels */
+    margin-bottom: 15px;
+}
+
+/* Tekst in de footer */
+.footer-text {
+    color: #999999;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* Links in de footer */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+    color: #999999;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #FFD600; /* Geel bij hoveren */
+}
+
+/* Onderkant van de footer met copyright tekst */
+.footer-bottom {
+    border-top: 1px solid #333333; /* Dunne scheidingslijn */
+    padding: 20px 0;
+    text-align: center;
+    color: #666666;
+    font-size: 0.85rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==================== RESPONSIVE NAVIGATIE (mobiel) ==================== */
+/* Op schermen kleiner dan 768px (tablets en mobielen) */
+@media (max-width: 768px) {
+    /* Toon de hamburger knop op mobiel */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Navigatielinks worden een dropdown menu */
+    .navbar-links {
+        display: none; /* Standaard verborgen op mobiel */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Direct onder de navbar */
+        left: 0;
+        right: 0;
+        background-color: #111111;
+        padding: 15px 20px;
+        gap: 5px;
+        z-index: 99;
+        border-top: 1px solid #333333;
+    }
+
+    /* Als het menu open is (klasse toegevoegd via JavaScript) */
+    .navbar-links.is-open {
+        display: flex;
+    }
+
+    /* Navbar links nemen volledige breedte in */
+    .nav-link {
+        display: block;
+        padding: 12px;
+    }
+
+    /* Footer kolommen onder elkaar op mobiel */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
