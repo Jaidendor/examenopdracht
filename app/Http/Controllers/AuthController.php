@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +44,38 @@ class AuthController extends Controller
         return back()->withErrors([
             'email' => 'De opgegeven inloggegevens zijn onjuist.',
         ])->onlyInput('email');
+    }
+
+    /**
+     * Toon het registratieformulier.
+     */
+    public function showRegister()
+    {
+        return view('auth.register');
+    }
+
+    /**
+     * Verwerk het registratieverzoek.
+     * Maakt een nieuw account aan in de MySQL 'users' tabel.
+     */
+    public function register(Request $request)
+    {
+        // 1. Valideer de invoer
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'unique:users,email'], // email mag nog niet bestaan
+            'password' => ['required', 'min:8', 'confirmed'],          // confirmed = moet overeenkomen met password_confirmation
+        ]);
+
+        // 2. Maak de nieuwe gebruiker aan in de database
+        // Het wachtwoord wordt automatisch gehasht door het User model (zie casts)
+        $user = User::create($validated);
+
+        // 3. Log de nieuwe gebruiker direct in
+        Auth::login($user);
+
+        // 4. Stuur door naar de homepagina
+        return redirect()->route('home');
     }
 
     /**

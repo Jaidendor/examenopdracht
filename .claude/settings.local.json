@@ -6,7 +6,10 @@
       "mcp__Claude_in_Chrome__tabs_context_mcp",
       "WebFetch(domain:cominbeeld.nl)",
       "Bash(vendor/bin/pint routes/web.php --format agent)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(php artisan *)",
+      "Bash(vendor/bin/pint app/Http/Controllers/AuthController.php routes/web.php --format agent)",
+      "mcp__laravel-boost__database-query"
     ]
   }
 }
