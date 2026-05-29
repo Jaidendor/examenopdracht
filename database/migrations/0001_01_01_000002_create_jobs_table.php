@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Voer de migraties uit.
      */
     public function up(): void
     {
+        // Tabel voor wachtrij-taken (jobs)
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string('queue')->index();
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->unsignedInteger('created_at');
         });
 
+        // Tabel voor groepen van taken (batches)
         Schema::create('job_batches', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('name');
@@ -34,6 +36,7 @@ return new class extends Migration
             $table->integer('finished_at')->nullable();
         });
 
+        // Tabel voor mislukte taken
         Schema::create('failed_jobs', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->unique();
@@ -48,7 +51,7 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Maak de migraties ongedaan.
      */
     public function down(): void
     {

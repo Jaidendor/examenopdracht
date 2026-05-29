@@ -1,4 +1,8 @@
 <?php
+/**
+ * Dit model vertegenwoordigt een gebruiker in de applicatie.
+ * Het regelt de interactie met de 'users' tabel in de database.
+ */
 
 namespace App\Models;
 
@@ -10,6 +14,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * De User class breidt Authenticatable uit, wat betekent dat
+ * dit model gebruikt kan worden voor het inlogsysteem van Laravel.
+ */
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
@@ -18,9 +26,8 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * Hier definiëren we hoe bepaalde databasevelden moeten worden behandeld.
+     * Bijvoorbeeld: het wachtwoord moet altijd gehasht worden opgeslagen.
      */
     protected function casts(): array
     {
@@ -28,5 +35,12 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    /**
+     * Een gebruiker kan meerdere reviews hebben geschreven.
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }

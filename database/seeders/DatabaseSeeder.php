@@ -11,12 +11,14 @@ class DatabaseSeeder extends Seeder
     use WithoutModelEvents;
 
     /**
-     * Seed the application's database.
+     * Vul de database met gegevens.
      */
     public function run(): void
     {
+        // Maak 10 willekeurige gebruikers aan
         // User::factory(10)->create();
 
+        // Maak een specifieke testgebruiker aan
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',

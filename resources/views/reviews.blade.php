@@ -238,6 +238,23 @@
         font-size: 0.9rem;
         color: #555555;
         line-height: 1.6;
+        margin-bottom: 10px;
+    }
+
+    /* Verwijder knop styling */
+    .btn-delete {
+        background: none;
+        border: none;
+        color: #dc3545;
+        font-size: 0.8rem;
+        cursor: pointer;
+        padding: 0;
+        text-decoration: underline;
+    }
+
+    .btn-delete:hover {
+        color: #a71d2a;
+        text-decoration: none;
     }
 
     /* Melding als er nog geen reviews zijn */
@@ -258,7 +275,16 @@
         padding: 12px 16px;
         margin-bottom: 20px;
         font-size: 0.9rem;
-        display: none; /* Standaard verborgen, getoond via JS */
+    }
+
+    .alert-danger {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
     }
 
     /* ==================== RESPONSIVE (mobiel) ==================== */
@@ -292,67 +318,87 @@
         <div class="review-form-card">
             <h2>Schrijf een review</h2>
 
-            <!-- Succes melding (wordt getoond via JavaScript na invullen) -->
-            <div class="alert-success" id="successMessage">
-                ✅ Bedankt voor je review! Deze wordt zo snel mogelijk geplaatst.
-            </div>
-
-            <!-- Het reviewformulier -->
-            <!-- action en method worden later ingevuld door de backend developer -->
-            <form id="reviewForm">
-                @csrf
-
-                <!-- Naam veld -->
-                <div class="form-group">
-                    <label for="name" class="form-label">Jouw naam</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        class="form-input"
-                        placeholder="Bijv. Anna de Vries"
-                        required
-                    >
+            @if(session('success'))
+                <div class="alert-success">
+                    ✅ {{ session('success') }}
                 </div>
+            @endif
 
-                <!-- Sterren beoordeling -->
-                <div class="form-group">
-                    <label class="form-label">Beoordeling</label>
+            @if(session('error'))
+                <div class="alert-danger">
+                    ❌ {{ session('error') }}
+                </div>
+            @endif
 
-                    <!-- De 5 klikbare sterren -->
-                    <div class="star-rating" id="starRating">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
+            @if($errors->any())
+                <div class="alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @auth
+                <!-- Het reviewformulier -->
+                <form id="reviewForm" action="{{ route('reviews.store') }}" method="POST">
+                    @csrf
+
+                    <!-- Naam veld -->
+                    <div class="form-group">
+                        <label for="name" class="form-label">Jouw naam</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="form-input"
+                            value="{{ Auth::user()->name }}"
+                            required
+                        >
                     </div>
 
-                    <!-- Kleine hint tekst -->
-                    <p class="star-hint">Klik op een ster om te beoordelen</p>
+                    <!-- Sterren beoordeling -->
+                    <div class="form-group">
+                        <label class="form-label">Beoordeling</label>
 
-                    <!-- Verborgen veld dat de waarde bijhoudt voor de backend -->
-                    <input type="hidden" name="rating" id="ratingValue" value="0">
-                </div>
+                        <!-- De 5 klikbare sterren -->
+                        <div class="star-rating" id="starRating">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
 
-                <!-- Bericht tekstvak -->
-                <div class="form-group">
-                    <label for="message" class="form-label">Jouw bericht</label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        class="form-textarea"
-                        placeholder="Vertel over jouw ervaring met COM in Beeld..."
-                        required
-                    ></textarea>
-                </div>
+                        <!-- Kleine hint tekst -->
+                        <p class="star-hint">Klik op een ster om te beoordelen</p>
 
-                <!-- Verzendknop -->
-                <button type="submit" class="btn-review">
-                    Review plaatsen
-                </button>
+                        <!-- Verborgen veld dat de waarde bijhoudt voor de backend -->
+                        <input type="hidden" name="rating" id="ratingValue" value="{{ old('rating', 0) }}">
+                    </div>
 
-            </form>
+                    <!-- Bericht tekstvak -->
+                    <div class="form-group">
+                        <label for="message" class="form-label">Jouw bericht</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            class="form-textarea"
+                            placeholder="Vertel over jouw ervaring met COM in Beeld..."
+                            required
+                        >{{ old('message') }}</textarea>
+                    </div>
+
+                    <!-- Verzendknop -->
+                    <button type="submit" class="btn-review">
+                        Review plaatsen
+                    </button>
+
+                </form>
+            @else
+                <p>Je moet <a href="{{ route('login') }}">ingelogd</a> zijn om een review te kunnen plaatsen.</p>
+            @endauth
         </div>
         <!-- ===== EINDE LINKER KOLOM ===== -->
 
@@ -360,45 +406,33 @@
         <div class="reviews-list">
             <h2>Recente reviews</h2>
 
-            <!-- Voorbeeld reviews (nep data voor de frontend) -->
-            <!-- De backend developer vervangt dit later met echte data uit de database -->
+            @forelse($reviews as $review)
+                <div class="review-item">
+                    <!-- Eerste letter van de naam als avatar -->
+                    <div class="review-avatar">{{ strtoupper(substr($review->name, 0, 1)) }}</div>
+                    <div class="review-body">
+                        <p class="review-name">{{ $review->name }}</p>
+                        <div class="review-stars">
+                            <!-- Toon het aantal sterren dat is gegeven (bijv. 4 volle en 1 lege ster) -->
+                            {{ str_repeat('★', $review->rating) }}{{ str_repeat('☆', 5 - $review->rating) }}
+                        </div>
+                        <p class="review-text">
+                            {{ $review->message }}
+                        </p>
 
-            <!-- Review 1 -->
-            <div class="review-item">
-                <div class="review-avatar">A</div>
-                <div class="review-body">
-                    <p class="review-name">Anna de Vries</p>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">
-                        Geweldige app! Mijn dochter kan zich nu veel beter uiten. Aanrader!
-                    </p>
+                        {{-- Alleen de eigenaar van de review ziet de verwijderknop --}}
+                        @if(Auth::id() === $review->user_id)
+                            <form action="{{ route('reviews.destroy', $review) }}" method="POST" onsubmit="return confirm('Weet je zeker dat je deze review wilt verwijderen?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn-delete">Verwijder review</button>
+                            </form>
+                        @endif
+                    </div>
                 </div>
-            </div>
-
-            <!-- Review 2 -->
-            <div class="review-item">
-                <div class="review-avatar">M</div>
-                <div class="review-body">
-                    <p class="review-name">Mark Jansen</p>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">
-                        Heel gebruiksvriendelijk. Zelfs wij als ouders konden het snel instellen.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Review 3 -->
-            <div class="review-item">
-                <div class="review-avatar">S</div>
-                <div class="review-body">
-                    <p class="review-name">Sara Bakker</p>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">
-                        Top product! We zijn erg blij met de resultaten na 2 weken.
-                    </p>
-                </div>
-            </div>
-
+            @empty
+                <p class="no-reviews">Er zijn nog geen reviews geplaatst. Wees de eerste!</p>
+            @endforelse
         </div>
         <!-- ===== EINDE RECHTER KOLOM ===== -->
 
@@ -450,33 +484,24 @@
     }
 
     // ==================== FORMULIER INDIENEN ====================
-    // Tijdelijke frontend afhandeling (backend wordt later toegevoegd)
+    // Backend afhandeling wordt nu gedaan via de controller
 
     const reviewForm = document.getElementById('reviewForm');
-    const successMessage = document.getElementById('successMessage');
 
-    reviewForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Voorkom dat de pagina herlaadt (tijdelijk)
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', function(e) {
+            // Controleer of een beoordeling is gegeven
+            if (parseInt(ratingInput.value) === 0) {
+                e.preventDefault();
+                alert('Geef eerst een beoordeling door op een ster te klikken.');
+            }
+        });
 
-        // Controleer of een beoordeling is gegeven
-        if (selectedRating === 0) {
-            alert('Geef eerst een beoordeling door op een ster te klikken.');
-            return;
+        // Initialiseer sterren als er een old value is (bijv. na validatiefout)
+        if (parseInt(ratingInput.value) > 0) {
+            selectedRating = parseInt(ratingInput.value);
+            highlightStars(selectedRating);
         }
-
-        // Toon de succes melding
-        successMessage.style.display = 'block';
-
-        // Leeg het formulier
-        reviewForm.reset();
-        selectedRating = 0;
-        ratingInput.value = 0;
-        highlightStars(0);
-
-        // Verberg de melding na 5 seconden
-        setTimeout(() => {
-            successMessage.style.display = 'none';
-        }, 5000);
-    });
+    }
 </script>
 @endpush

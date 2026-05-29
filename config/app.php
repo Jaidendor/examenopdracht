@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | Applicatie Naam
     |--------------------------------------------------------------------------
     |
-    | This value is the name of your application, which will be used when the
-    | framework needs to place the application's name in a notification or
-    | other UI elements where an application name needs to be displayed.
+    | Deze waarde is de naam van je applicatie. Deze wordt gebruikt wanneer het
+    | framework de naam van de applicatie moet plaatsen in een notificatie of
+    | andere UI-elementen.
     |
     */
 
@@ -17,12 +17,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Environment
+    | Applicatie Omgeving
     |--------------------------------------------------------------------------
     |
-    | This value determines the "environment" your application is currently
-    | running in. This may determine how you prefer to configure various
-    | services the application utilizes. Set this in your ".env" file.
+    | Deze waarde bepaalt de "omgeving" waarin je applicatie momenteel draait.
+    | Dit kan bepalen hoe je verschillende services configureert die de
+    | applicatie gebruikt. Stel dit in je ".env" bestand in.
     |
     */
 
@@ -30,12 +30,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Debug Mode
+    | Applicatie Debug Modus
     |--------------------------------------------------------------------------
     |
-    | When your application is in debug mode, detailed error messages with
-    | stack traces will be shown on every error that occurs within your
-    | application. If disabled, a simple generic error page is shown.
+    | Wanneer je applicatie in debug-modus staat, worden gedetailleerde
+    | foutmeldingen met stack traces getoond bij elke fout. Als dit
+    | uitgeschakeld is, wordt een simpele generieke foutpagina getoond.
     |
     */
 
@@ -43,12 +43,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application URL
+    | Applicatie URL
     |--------------------------------------------------------------------------
     |
-    | This URL is used by the console to properly generate URLs when using
-    | the Artisan command line tool. You should set this to the root of
-    | the application so that it's available within Artisan commands.
+    | Deze URL wordt gebruikt door de console om URL's correct te genereren
+    | bij het gebruik van de Artisan command-line tool. Je moet dit instellen
+    | op de root van je applicatie.
     |
     */
 
@@ -56,12 +56,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Timezone
+    | Applicatie Tijdzone
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the default timezone for your application, which
-    | will be used by the PHP date and date-time functions. The timezone
-    | is set to "UTC" by default as it is suitable for most use cases.
+    | Hier kun je de standaard tijdzone voor je applicatie opgeven, die
+    | gebruikt zal worden door de PHP datum- en tijd-functies.
     |
     */
 
@@ -69,20 +68,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Locale Configuration
+    | Applicatie Taalconfiguratie
     |--------------------------------------------------------------------------
     |
-    | The application locale determines the default locale that will be used
-    | by Laravel's translation / localization methods. This option can be
-    | set to any locale for which you plan to have translation strings.
+    | De taal van de applicatie bepaalt de standaardtaal die gebruikt zal worden
+    | door de vertaalmethoden van Laravel.
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    'locale' => env('APP_LOCALE', 'nl'),
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
-    'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
+    'faker_locale' => env('APP_FAKER_LOCALE', 'nl_NL'),
 
     /*
     |--------------------------------------------------------------------------

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 // ==================== PUBLIEKE ROUTES ====================
@@ -16,10 +17,10 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 // Login verwerken (POST: verwerk het formulier)
 Route::post('/login', [AuthController::class, 'login']);
 
-// Reviewpagina
-Route::get('/reviews', function () {
-    return view('reviews');
-})->name('reviews');
+// Reviewpagina (GET: om de pagina te bekijken, POST: om een review te versturen, DELETE: om te verwijderen)
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
+Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
 // Registerpagina (GET: toon het formulier)
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');

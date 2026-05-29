@@ -8,17 +8,18 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /**
+ * De UserFactory wordt gebruikt om nep-gebruikers aan te maken voor testen.
  * @extends Factory<User>
  */
 class UserFactory extends Factory
 {
     /**
-     * The current password being used by the factory.
+     * Het huidige wachtwoord dat door de factory wordt gebruikt.
      */
     protected static ?string $password;
 
     /**
-     * Define the model's default state.
+     * Definieer de standaard staat van het model.
      *
      * @return array<string, mixed>
      */
@@ -34,7 +35,7 @@ class UserFactory extends Factory
     }
 
     /**
-     * Indicate that the model's email address should be unverified.
+     * Geef aan dat het e-mailadres van de gebruiker niet geverifieerd is.
      */
     public function unverified(): static
     {

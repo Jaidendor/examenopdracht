@@ -6,12 +6,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Defaults
+    | Authenticatie Standaardwaarden
     |--------------------------------------------------------------------------
     |
-    | This option defines the default authentication "guard" and password
-    | reset "broker" for your application. You may change these values
-    | as required, but they're a perfect start for most applications.
+    | Deze optie definieert de standaard authenticatie "guard" en wachtwoord
+    | herstel "broker" voor je applicatie.
     |
     */
 
@@ -22,18 +21,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Guards
+    | Authenticatie Guards
     |--------------------------------------------------------------------------
     |
-    | Next, you may define every authentication guard for your application.
-    | Of course, a great default configuration has been defined for you
-    | which utilizes session storage plus the Eloquent user provider.
-    |
-    | All authentication guards have a user provider, which defines how the
-    | users are actually retrieved out of your database or other storage
-    | system used by the application. Typically, Eloquent is utilized.
-    |
-    | Supported: "session"
+    | Hier kun je elke authenticatie guard voor je applicatie definiëren.
     |
     */
 
@@ -46,18 +37,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | User Providers
+    | Gebruikers Providers
     |--------------------------------------------------------------------------
     |
-    | All authentication guards have a user provider, which defines how the
-    | users are actually retrieved out of your database or other storage
-    | system used by the application. Typically, Eloquent is utilized.
-    |
-    | If you have multiple user tables or models you may configure multiple
-    | providers to represent the model / table. These providers may then
-    | be assigned to any extra authentication guards you have defined.
-    |
-    | Supported: "database", "eloquent"
+    | Alle authenticatie guards hebben een gebruikers provider, die definieert
+    | hoe de gebruikers daadwerkelijk uit je database worden opgehaald.
     |
     */
 

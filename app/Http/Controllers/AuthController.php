@@ -6,6 +6,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Deze controller regelt het inloggen, registreren en uitloggen van gebruikers.
+ */
 class AuthController extends Controller
 {
     /**
