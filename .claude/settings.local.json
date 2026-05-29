@@ -9,7 +9,8 @@
       "Bash(npm run *)",
       "Bash(php artisan *)",
       "Bash(vendor/bin/pint app/Http/Controllers/AuthController.php routes/web.php --format agent)",
-      "mcp__laravel-boost__database-query"
+      "mcp__laravel-boost__database-query",
+      "mcp__2faa0afe-2d74-40f2-a54a-f6674e272ca3__get_screenshot"
     ]
   }
 }

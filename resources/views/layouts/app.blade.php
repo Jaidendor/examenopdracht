@@ -36,8 +36,8 @@
             <ul class="navbar-links" id="navLinks">
                 <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
                 <li><a href="#" class="nav-link">Uitleg</a></li>
+                <li><a href="{{ route('reviews') }}" class="nav-link">Reviews</a></li>
                 <li><a href="#" class="nav-link">Contact</a></li>
-                <li><a href="#" class="nav-link">Reviews</a></li>
 
                 <!-- Login/Logout knop afhankelijk van inlogstatus -->
                 @auth
@@ -84,8 +84,8 @@
                 <ul class="footer-links">
                     <li><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="#">Uitleg</a></li>
+                    <li><a href="{{ route('reviews') }}">Reviews</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="#">Reviews</a></li>
                 </ul>
             </div>
 

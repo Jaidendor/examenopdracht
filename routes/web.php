@@ -16,6 +16,11 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 // Login verwerken (POST: verwerk het formulier)
 Route::post('/login', [AuthController::class, 'login']);
 
+// Reviewpagina
+Route::get('/reviews', function () {
+    return view('reviews');
+})->name('reviews');
+
 // Registerpagina (GET: toon het formulier)
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 
