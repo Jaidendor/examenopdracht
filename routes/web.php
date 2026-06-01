@@ -17,6 +17,16 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 // Login verwerken (POST: verwerk het formulier)
 Route::post('/login', [AuthController::class, 'login']);
 
+// Uitlegpagina
+Route::get('/uitleg', function () {
+    return view('uitleg');
+})->name('uitleg');
+
+// Contactpagina
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
 // Reviewpagina (GET: om de pagina te bekijken, POST: om een review te versturen, DELETE: om te verwijderen)
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
 Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');

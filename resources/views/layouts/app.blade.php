@@ -35,9 +35,9 @@
             <!-- Navigatielinks -->
             <ul class="navbar-links" id="navLinks">
                 <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-                <li><a href="#" class="nav-link">Uitleg</a></li>
+                <li><a href="{{ route('uitleg') }}" class="nav-link">Uitleg</a></li>
                 <li><a href="{{ route('reviews') }}" class="nav-link">Reviews</a></li>
-                <li><a href="#" class="nav-link">Contact</a></li>
+                <li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
 
                 <!-- Login/Logout knop afhankelijk van inlogstatus -->
                 @auth
