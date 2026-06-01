@@ -22,6 +22,11 @@ class ReviewSeeder extends Seeder
 
         $reviews = [
             [
+                'name'    => 'yateen',
+                'rating'  => 4,
+                'message' => 'de app werkt heel goed alleen zegt ie soms wat verkeerd maar dat kan uiteraard gebeuren',
+            ],
+            [
                 'name'    => 'Anna de Vries',
                 'rating'  => 5,
                 'message' => 'Geweldige app! Mijn dochter kan zich nu veel beter uiten. Aanrader!',
@@ -40,6 +45,11 @@ class ReviewSeeder extends Seeder
                 'name'    => 'Test User',
                 'rating'  => 5,
                 'message' => 'test',
+            ],
+            [
+                'name'    => 'edwin van ijck als het goed is',
+                'rating'  => 5,
+                'message' => 'dit is een test',
             ],
         ];
 
