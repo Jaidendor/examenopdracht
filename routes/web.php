@@ -27,6 +27,10 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::post('/contact', function () {
+    return redirect()->route('contact')->with('success', 'Bericht succesvol verzonden.');
+})->name('contact.store');
+
 // Reviewpagina (GET: om de pagina te bekijken, POST: om een review te versturen, DELETE: om te verwijderen)
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
 Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');

@@ -251,12 +251,11 @@
             @endif
 
             {{--
-                TODO VOOR YATEEN (backend):
-                - Maak een ContactController met store() methode
-                - Verander action="#" naar route('contact.store')
-                - Valideer de velden en stuur een bevestigingsmail via Laravel Mail
+                Contactformulier verwerking:
+                - POST naar contact.store
+                - Toont succesmelding via session flash message
             --}}
-            <form action="#" method="POST" id="contactForm">
+            <form action="{{ route('contact.store') }}" method="POST" id="contactForm">
                 @csrf
 
                 <!-- Naam en email naast elkaar -->
