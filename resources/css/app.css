@@ -58,6 +58,15 @@ body {
     font-weight: 700;
     text-decoration: none;
     letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 50px; /* Hoogte van het logo */
+    width: auto;
+    border-radius: 4px;
 }
 
 .navbar-logo:hover {

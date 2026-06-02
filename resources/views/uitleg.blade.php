@@ -252,10 +252,9 @@
         <div class="stap">
             <div class="stap-nummer">1</div>
             <div class="stap-inhoud">
-                <h3>Maak een account aan</h3>
+                <h3>Log in</h3>
                 <p>
-                    Ga naar de <a href="{{ route('register') }}" style="color:#111111;font-weight:600;">registratiepagina</a>
-                    en maak gratis een account aan. Je hebt alleen een e-mailadres en wachtwoord nodig.
+                    Log in met de inlogcodes die je hebt gekregen.
                 </p>
             </div>
         </div>
@@ -265,10 +264,9 @@
         <div class="stap">
             <div class="stap-nummer">2</div>
             <div class="stap-inhoud">
-                <h3>Log in op je account</h3>
+                <h3>Instellingen</h3>
                 <p>
-                    Na het registreren log je in via de <a href="{{ route('login') }}" style="color:#111111;font-weight:600;">loginpagina</a>.
-                    Vink "Onthoud mij" aan zodat je niet elke keer opnieuw hoeft in te loggen.
+                    Stel uw voorkeuren in in de instellingen.
                 </p>
             </div>
         </div>
@@ -278,10 +276,9 @@
         <div class="stap">
             <div class="stap-nummer">3</div>
             <div class="stap-inhoud">
-                <h3>Stel de software in</h3>
+                <h3>Foto's maken</h3>
                 <p>
-                    Na het inloggen kom je in het dashboard. Hier kun je symbolen en categorieën
-                    instellen die passen bij de gebruiker. Kies afbeeldingen die herkenbaar zijn voor het kind.
+                    Begin met foto's maken.
                 </p>
             </div>
         </div>
@@ -291,23 +288,9 @@
         <div class="stap">
             <div class="stap-nummer">4</div>
             <div class="stap-inhoud">
-                <h3>Begin met communiceren</h3>
+                <h3>Dashboard</h3>
                 <p>
-                    Het kind kan nu beginnen met communiceren via de symbolen op het scherm.
-                    Door op een afbeelding te tikken wordt het woord of de zin uitgesproken.
-                </p>
-            </div>
-        </div>
-
-        <div class="stap-lijn"></div>
-
-        <div class="stap">
-            <div class="stap-nummer">5</div>
-            <div class="stap-inhoud">
-                <h3>Volg de voortgang</h3>
-                <p>
-                    In het dashboard kun je bijhouden welke woorden het kind het meest gebruikt
-                    en welke categorieën nog uitgebreid kunnen worden.
+                    Ga naar het dashboard om de gemaakte foto's terug te zien.
                 </p>
             </div>
         </div>
@@ -315,13 +298,13 @@
 
     <!-- DEMO -->
     <section class="demo-sectie">
-        <h2>Bekijk de software in actie</h2>
-        <p>Hieronder zie je hoe COM in Beeld eruitziet en hoe het werkt.</p>
+        <h2>Bekijk hoe de app te werk gaat via deze animatie video</h2>
 
-        {{-- Vervang dit later met een echte video of screenshot --}}
-        <div class="demo-placeholder">
-            <span>🎥</span>
-            Hier komt een demo video of screenshot van de software
+        <div style="max-width: 800px; margin: 0 auto;">
+            <video controls style="width: 100%; border-radius: 12px; border: 3px solid #FFD600;">
+                <source src="{{ asset('videos/pava animatie video uitleg.mp4') }}" type="video/mp4">
+                Je browser ondersteunt de video tag niet.
+            </video>
         </div>
     </section>
 
@@ -352,18 +335,16 @@
             </div>
         </div>
 
-        {{-- TIJDELIJK VERBORGEN: functie bestaat nog niet
         <div class="faq-item">
             <button class="faq-vraag">
-                Kan ik eigen afbeeldingen toevoegen?
+                Kan ik eigen foto's toevoegen?
                 <span class="faq-pijl">▼</span>
             </button>
             <div class="faq-antwoord">
-                Ja! In het dashboard kun je eigen afbeeldingen en symbolen uploaden zodat de
+                Ja! In het dashboard kun je eigen foto's en categorieën toevoegen zodat de
                 software zo goed mogelijk aansluit bij de belevingswereld van het kind.
             </div>
         </div>
-        --}}
 
         <div class="faq-item">
             <button class="faq-vraag">
@@ -380,9 +361,9 @@
 
     <!-- CTA -->
     <section class="uitleg-cta">
-        <h2>Klaar om te beginnen?</h2>
-        <p>Maak gratis een account aan en start vandaag nog.</p>
-        <a href="{{ route('register') }}" class="btn btn-dark">Account aanmaken</a>
+        <h2>Vraag nu uw inloggegevens aan</h2>
+        <p>Neem contact met ons op om uw inloggegevens te ontvangen en start vandaag nog.</p>
+        <a href="{{ route('contact') }}" class="btn btn-dark">Inloggegevens aanvragen</a>
     </section>
 
 @endsection

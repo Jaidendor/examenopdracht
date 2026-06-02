@@ -22,7 +22,7 @@
 
             <!-- Logo / merknaam -->
             <a href="{{ route('home') }}" class="navbar-logo">
-                COM in Beeld
+                <span>COM in Beeld</span>
             </a>
 
             <!-- Hamburger knop voor mobiel (wordt getoond op kleine schermen) -->
@@ -73,7 +73,7 @@
                 <h3 class="footer-title">COM in Beeld</h3>
                 <p class="footer-text">
                     Software die kinderen met een beperking helpt om te communiceren
-                    via beeld en symbolen.
+                    via beeld en foto's die zij zelf maken.
                 </p>
             </div>
 

@@ -267,7 +267,7 @@
         <!-- Ondertitel / beschrijving -->
         <p>
             COM in Beeld helpt kinderen met een beperking om beter te communiceren
-            met behulp van symbolen en afbeeldingen. Eenvoudig, effectief en toegankelijk.
+            met behulp van foto's die zij zelf maken. Eenvoudig, effectief en toegankelijk.
         </p>
 
         <!-- Knoppen: "Aan de slag" en "Meer info" -->
@@ -291,10 +291,10 @@
 
             <!-- Kaart 1: Eenvoudig -->
             <div class="feature-card">
-                <div class="feature-icon">🖼️</div>
+                <div class="feature-icon">📸</div>
                 <h3>Beeldcommunicatie</h3>
                 <p>
-                    Kinderen kunnen communiceren via duidelijke symbolen en afbeeldingen,
+                    Kinderen kunnen communiceren via foto's die zij zelf maken,
                     zonder dat ze tekst hoeven te lezen.
                 </p>
             </div>
@@ -315,7 +315,7 @@
                 <h3>Aanpasbaar</h3>
                 <p>
                     Elke gebruiker is uniek. Pas de software aan op de behoeften
-                    van het kind met eigen symbolen en categorieën.
+                    van het kind met eigen foto's en categorieën.
                 </p>
             </div>
 
@@ -323,58 +323,30 @@
     </section>
     <!-- ==================== EINDE FEATURES ==================== -->
 
-    <!-- ==================== HOE WERKT HET SECTIE ==================== -->
-    <!-- Stap-voor-stap uitleg van de software -->
+    <!-- ==================== VIDEO SECTIE ==================== -->
     <section class="how-it-works" id="how-it-works">
         <div class="section-header">
-            <h2>Hoe werkt het?</h2>
-            <p>In vier eenvoudige stappen aan de slag met COM in Beeld.</p>
+            <h2>Bekijk hoe het werkt</h2>
+            <p>Ontdek hoe COM in Beeld kinderen helpt bij hun communicatie.</p>
         </div>
 
-        <!-- De 4 stappen -->
-        <div class="steps">
-
-            <!-- Stap 1 -->
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Account aanmaken</h3>
-                <p>Maak gratis een account aan en stel je profiel in.</p>
-            </div>
-
-            <!-- Stap 2 -->
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Software instellen</h3>
-                <p>Pas de symbolen en categorieën aan voor de gebruiker.</p>
-            </div>
-
-            <!-- Stap 3 -->
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Beginnen</h3>
-                <p>Het kind kan direct beginnen met communiceren via beelden.</p>
-            </div>
-
-            <!-- Stap 4 -->
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>Bijhouden</h3>
-                <p>Volg de voortgang en pas de software aan indien nodig.</p>
-            </div>
-
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+            <video controls style="width: 100%; border-radius: 12px; border: 3px solid #FFD600;">
+                <source src="{{ asset('videos/pava video voor home pagina.mp4') }}" type="video/mp4">
+                Je browser ondersteunt de video tag niet.
+            </video>
         </div>
     </section>
     <!-- ==================== EINDE HOE WERKT HET ==================== -->
 
     <!-- ==================== CTA SECTIE ==================== -->
-    <!-- Uitnodiging om een account aan te maken -->
     <section class="cta-section">
-        <h2>Klaar om te beginnen?</h2>
+        <h2>Vraag nu uw inloggegevens aan</h2>
         <p>
-            Maak vandaag nog een gratis account aan en ontdek hoe COM in Beeld
+            Neem contact met ons op om uw inloggegevens te ontvangen en ontdek hoe COM in Beeld
             communicatie eenvoudiger maakt.
         </p>
-        <a href="{{ route('login') }}" class="btn btn-dark">Nu beginnen</a>
+        <a href="{{ route('contact') }}" class="btn btn-dark">Inloggegevens aanvragen</a>
     </section>
     <!-- ==================== EINDE CTA ==================== -->
 
