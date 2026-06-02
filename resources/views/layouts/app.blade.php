@@ -41,8 +41,7 @@
 
                 <!-- Login/Logout knop afhankelijk van inlogstatus -->
                 @auth
-                    <!-- Als gebruiker is ingelogd, toon dashboard link en logout -->
-                    <li><a href="{{ url('/dashboard') }}" class="btn-nav">Dashboard</a></li>
+                    <!-- Als gebruiker is ingelogd, toon alleen uitloggen knop -->
                     <li>
                         <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                             @csrf
@@ -93,8 +92,9 @@
             <div class="footer-col">
                 <h3 class="footer-title">Contact</h3>
                 <ul class="footer-links">
-                    <li>info@cominbeeld.nl</li>
-                    <li>+31 (0)6 12345678</li>
+                    <li>info@camonwheels.nl</li>
+                    <li>+31 (0)6 42242933</li>
+                    <li>+31 (0)6 11534731</li>
                 </ul>
             </div>
 

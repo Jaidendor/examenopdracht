@@ -343,26 +343,16 @@
 
         <div class="faq-item">
             <button class="faq-vraag">
-                Heb ik een abonnement nodig?
+                Is COM in Beeld beschikbaar als app?
                 <span class="faq-pijl">▼</span>
             </button>
             <div class="faq-antwoord">
-                Nee, COM in Beeld is gratis te gebruiken. Je maakt een account aan en hebt
-                direct toegang tot alle functies.
+                Ja! COM in Beeld is een app die je kunt downloaden op je telefoon, tablet of iPad.
+                De app is beschikbaar voor zowel Android als iOS.
             </div>
         </div>
 
-        <div class="faq-item">
-            <button class="faq-vraag">
-                Werkt de software op tablet en telefoon?
-                <span class="faq-pijl">▼</span>
-            </button>
-            <div class="faq-antwoord">
-                Ja, COM in Beeld werkt op alle apparaten met een browser: computer, tablet en
-                smartphone. De interface past zich automatisch aan het schermformaat aan.
-            </div>
-        </div>
-
+        {{-- TIJDELIJK VERBORGEN: functie bestaat nog niet
         <div class="faq-item">
             <button class="faq-vraag">
                 Kan ik eigen afbeeldingen toevoegen?
@@ -373,6 +363,7 @@
                 software zo goed mogelijk aansluit bij de belevingswereld van het kind.
             </div>
         </div>
+        --}}
 
         <div class="faq-item">
             <button class="faq-vraag">

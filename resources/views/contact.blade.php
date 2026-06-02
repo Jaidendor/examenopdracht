@@ -324,7 +324,7 @@
                 <div class="info-icon">📧</div>
                 <div class="info-text">
                     <h3>E-mailadres</h3>
-                    <p>info@cominbeeld.nl</p>
+                    <p>info@camonwheels.nl</p>
                 </div>
             </div>
 
@@ -332,7 +332,8 @@
                 <div class="info-icon">📞</div>
                 <div class="info-text">
                     <h3>Telefoonnummer</h3>
-                    <p>+31 (0)6 12345678</p>
+                    <p>+31 (0)6 42242933</p>
+                    <p>+31 (0)6 11534731</p>
                 </div>
             </div>
 
@@ -340,7 +341,7 @@
                 <div class="info-icon">📍</div>
                 <div class="info-text">
                     <h3>Locatie</h3>
-                    <p>Nederland</p>
+                    <p>Insulindestraat 80 - 82 - 84, 3038 JB Rotterdam</p>
                 </div>
             </div>
 
