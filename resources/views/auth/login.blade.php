@@ -3,6 +3,7 @@
 
 {{-- Paginatitel voor de browser tab --}}
 @section('title', 'Inloggen - COM in Beeld')
+@section('robots', 'noindex, nofollow')
 
 {{-- Pagina-specifieke CSS stijlen --}}
 @push('styles')

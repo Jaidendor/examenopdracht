@@ -3,6 +3,7 @@
 
 {{-- Paginatitel --}}
 @section('title', 'Registreren - COM in Beeld')
+@section('robots', 'noindex, nofollow')
 
 {{-- Pagina-specifieke CSS --}}
 @push('styles')

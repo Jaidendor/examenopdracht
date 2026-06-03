@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Paginatitel: elke pagina kan zijn eigen titel instellen via @section('title') -->
-    <title>@yield('title', 'COM in Beeld')</title>
+    <!-- Paginatitel: elke pagina stelt zijn eigen titel in via @section('title') -->
+    <title>@yield('title', 'COM in Beeld – Communicatieapp voor kinderen met een beperking')</title>
+
+    <!-- Meta description: korte omschrijving voor zoekmachines (max 160 tekens) -->
+    <meta name="description" content="@yield('meta_description', 'COM in Beeld helpt kinderen met een beperking communiceren via foto\'s die zij zelf maken. Eenvoudig, effectief en toegankelijk.')">
+
+    <!-- Robots: geeft zoekmachines aan of ze de pagina mogen indexeren -->
+    <meta name="robots" content="@yield('robots', 'index, follow')">
+
+    <!-- Open Graph: hoe de pagina eruitziet bij delen op sociale media -->
+    <meta property="og:title" content="@yield('title', 'COM in Beeld')">
+    <meta property="og:description" content="@yield('meta_description', 'COM in Beeld helpt kinderen met een beperking communiceren via foto\'s die zij zelf maken.')">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="nl_NL">
+
+    <!-- Canonical: voorkomt dat dezelfde pagina dubbel geïndexeerd wordt -->
+    <link rel="canonical" href="{{ url()->current() }}">
 
     <!-- Vite zorgt voor het compileren van CSS en JavaScript -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -22,7 +37,7 @@
 
             <!-- Logo / merknaam -->
             <a href="{{ route('home') }}" class="navbar-logo">
-                <span>COM in Beeld</span>
+                <span>COM in Beeld <span style="font-weight: 400; opacity: 0.75;">Developers</span></span>
             </a>
 
             <!-- Hamburger knop voor mobiel (wordt getoond op kleine schermen) -->
@@ -82,9 +97,9 @@
                 <h3 class="footer-title">Navigatie</h3>
                 <ul class="footer-links">
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="#">Uitleg</a></li>
+                    <li><a href="{{ route('uitleg') }}">Uitleg</a></li>
                     <li><a href="{{ route('reviews') }}">Reviews</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
             </div>
 

@@ -1,2 +1,6 @@
 User-agent: *
-Disallow:
+Disallow: /login
+Disallow: /register
+Disallow: /logout
+
+Sitemap: http://examen-opdracht.test/sitemap.xml

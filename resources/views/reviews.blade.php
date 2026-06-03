@@ -2,7 +2,8 @@
 @extends('layouts.app')
 
 {{-- Paginatitel --}}
-@section('title', 'Reviews - COM in Beeld')
+@section('title', 'Reviews – Ervaringen met COM in Beeld')
+@section('meta_description', 'Lees wat ouders en begeleiders vinden van COM in Beeld. Deel ook jouw eigen ervaring met de communicatieapp voor kinderen.')
 
 {{-- Pagina-specifieke CSS --}}
 @push('styles')

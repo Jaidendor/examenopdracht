@@ -2,7 +2,8 @@
 @extends('layouts.app')
 
 {{-- Paginatitel voor de browser tab --}}
-@section('title', 'Home - COM in Beeld')
+@section('title', 'COM in Beeld – Communicatieapp voor kinderen met een beperking')
+@section('meta_description', 'COM in Beeld helpt kinderen met een communicatiebeperking via foto\'s die zij zelf maken. Ontdek hoe de app werkt en maak vandaag nog een gratis account aan.')
 
 {{-- Pagina-specifieke CSS stijlen --}}
 @push('styles')
@@ -259,20 +260,19 @@
     <!-- De grote welkomstsectie bovenaan de pagina -->
     <section class="hero">
         <!-- Klein label bovenaan -->
-        <span class="hero-label">Communicatiesoftware</span>
+        <span class="hero-label">Wizards of Words — WoW</span>
 
         <!-- Hoofdtitel -->
-        <h1>Communiceren via <span>beeld</span></h1>
+        <h1>Kinderen bouwen <span>WoW</span> mee</h1>
 
-        <!-- Ondertitel / beschrijving -->
         <p>
-            COM in Beeld helpt kinderen met een beperking om beter te communiceren
-            met behulp van foto's die zij zelf maken. Eenvoudig, effectief en toegankelijk.
+            COM in Beeld maakt Wizards of Words samen met kinderen.
+            Zij testen, ontwerpen en beslissen mee over elke stap van de app.
         </p>
 
-        <!-- Knoppen: "Aan de slag" en "Meer info" -->
+        <!-- Knoppen -->
         <div class="hero-buttons">
-            <a href="#" class="btn btn-primary">Aan de slag</a>
+            <a href="{{ route('uitleg') }}" class="btn btn-primary">Ontdek WoW</a>
             <a href="#how-it-works" class="btn btn-secondary">Meer informatie</a>
         </div>
     </section>
@@ -282,40 +282,39 @@
     <!-- Drie kaarten met de voordelen van de software -->
     <section class="features">
         <div class="features-header">
-            <h2>Waarom COM in Beeld?</h2>
-            <p>Onze software is speciaal ontwikkeld voor kinderen die moeite hebben met communiceren.</p>
+            <h2>Wat maakt WoW anders</h2>
+            <p>COM in Beeld bouwt WoW samen met kinderen, niet namens hen.</p>
         </div>
 
-        <!-- Grid met 3 feature kaarten -->
         <div class="features-grid">
 
-            <!-- Kaart 1: Eenvoudig -->
+            <!-- Kaart 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">🧙</div>
+                <h3>Kinderen beslissen mee</h3>
+                <p>
+                    Kinderen testen elke versie van WoW en geven aan wat werkt.
+                    COM in Beeld past de app daarop aan.
+                </p>
+            </div>
+
+            <!-- Kaart 2 -->
             <div class="feature-card">
                 <div class="feature-icon">📸</div>
-                <h3>Beeldcommunicatie</h3>
+                <h3>Eigen foto's als woordenschat</h3>
                 <p>
-                    Kinderen kunnen communiceren via foto's die zij zelf maken,
-                    zonder dat ze tekst hoeven te lezen.
+                    Kinderen maken foto's van dingen uit hun leven. Die foto's worden
+                    hun persoonlijke communicatiemiddel in de app.
                 </p>
             </div>
 
-            <!-- Kaart 2: Eenvoudig te gebruiken -->
+            <!-- Kaart 3 -->
             <div class="feature-card">
-                <div class="feature-icon">✋</div>
-                <h3>Eenvoudig in gebruik</h3>
+                <div class="feature-icon">✨</div>
+                <h3>Gebouwd op echte feedback</h3>
                 <p>
-                    De software is intuïtief ontworpen zodat zowel kinderen als
-                    begeleiders het direct kunnen gebruiken.
-                </p>
-            </div>
-
-            <!-- Kaart 3: Aanpasbaar -->
-            <div class="feature-card">
-                <div class="feature-icon">⚙️</div>
-                <h3>Aanpasbaar</h3>
-                <p>
-                    Elke gebruiker is uniek. Pas de software aan op de behoeften
-                    van het kind met eigen foto's en categorieën.
+                    Elke knop, elk scherm en elke keuze in WoW komt voort uit wat
+                    kinderen zelf zeiden dat werkte.
                 </p>
             </div>
 
@@ -326,8 +325,8 @@
     <!-- ==================== VIDEO SECTIE ==================== -->
     <section class="how-it-works" id="how-it-works">
         <div class="section-header">
-            <h2>Bekijk hoe het werkt</h2>
-            <p>Ontdek hoe COM in Beeld kinderen helpt bij hun communicatie.</p>
+            <h2>Bekijk Wizards of Words in actie</h2>
+            <p>Zie hoe kinderen en COM in Beeld WoW samen in gebruik nemen.</p>
         </div>
 
         <div style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
@@ -341,12 +340,9 @@
 
     <!-- ==================== CTA SECTIE ==================== -->
     <section class="cta-section">
-        <h2>Vraag nu uw inloggegevens aan</h2>
-        <p>
-            Neem contact met ons op om uw inloggegevens te ontvangen en ontdek hoe COM in Beeld
-            communicatie eenvoudiger maakt.
-        </p>
-        <a href="{{ route('contact') }}" class="btn btn-dark">Inloggegevens aanvragen</a>
+        <h2>Interesse in WoW?</h2>
+        <p>Stuur COM in Beeld Developers een bericht. We vertellen je graag meer.</p>
+        <a href="{{ route('contact') }}" class="btn btn-dark">Neem contact op</a>
     </section>
     <!-- ==================== EINDE CTA ==================== -->
 
@@ -371,5 +367,22 @@
             }
         });
     });
+</script>
+
+{{-- Organization structured data: helpt Google het bedrijf te herkennen --}}
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "Organization",
+    "name": "COM in Beeld",
+    "description": "Communicatieapp voor kinderen met een beperking",
+    "url": "{{ route('home') }}",
+    "contactPoint": {
+        "@@type": "ContactPoint",
+        "email": "info@cominbeeld.nl",
+        "contactType": "customer support",
+        "availableLanguage": "Dutch"
+    }
+}
 </script>
 @endpush
