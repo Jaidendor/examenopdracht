@@ -1,8 +1,44 @@
 {{-- Uitbreiden van de gedeelde layout --}}
 @extends('layouts.app')
 
-@section('title', 'Uitleg - COM in Beeld')
+@section('title', 'Hoe werkt COM in Beeld? – Stap voor stap uitleg')
+@section('meta_description', 'Leer hoe je COM in Beeld gebruikt. Volg onze stap-voor-stap handleiding en bekijk veelgestelde vragen over de communicatieapp voor kinderen.')
 
+{{-- FAQPage structured data: Google toont FAQ vragen direct in zoekresultaten --}}
+@push('styles')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@@type": "Question",
+            "name": "Voor wie is COM in Beeld bedoeld?",
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "COM in Beeld is bedoeld voor kinderen met een communicatiebeperking, zoals kinderen met autisme, een spraak- of taalstoornis, of een verstandelijke beperking."
+            }
+        },
+        {
+            "@@type": "Question",
+            "name": "Is COM in Beeld beschikbaar als app?",
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "Ja! COM in Beeld is een app die je kunt downloaden op je telefoon, tablet of iPad. De app is beschikbaar voor zowel Android als iOS."
+            }
+        },
+        {
+            "@@type": "Question",
+            "name": "Wat doe ik als ik een probleem heb?",
+            "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "Neem contact met ons op via de contactpagina. Wij helpen je zo snel mogelijk verder."
+            }
+        }
+    ]
+}
+</script>
+@endpush
 @push('styles')
 <style>
     /* ==================== HERO ==================== */
@@ -240,9 +276,9 @@
 
     <!-- HERO -->
     <section class="uitleg-hero">
-        <span class="uitleg-hero-label">Handleiding</span>
-        <h1>Hoe gebruik je COM in Beeld?</h1>
-        <p>In een paar eenvoudige stappen ben je op weg. Volg de handleiding hieronder.</p>
+        <span class="uitleg-hero-label">Wizards of Words — WoW</span>
+        <h1>Zo gebruik je <span style="color:#FFD600;">WoW</span></h1>
+        <p>COM in Beeld bouwt WoW samen met kinderen. Hier zie je hoe de app werkt.</p>
     </section>
 
     <!-- STAPPEN -->
@@ -254,7 +290,7 @@
             <div class="stap-inhoud">
                 <h3>Log in</h3>
                 <p>
-                    Log in met de inlogcodes die je hebt gekregen.
+                    Open WoW en log in met de codes die je van COM in Beeld hebt ontvangen.
                 </p>
             </div>
         </div>
@@ -264,9 +300,9 @@
         <div class="stap">
             <div class="stap-nummer">2</div>
             <div class="stap-inhoud">
-                <h3>Instellingen</h3>
+                <h3>Stel je categorieën in</h3>
                 <p>
-                    Stel uw voorkeuren in in de instellingen.
+                    Kies in de instellingen welke categorieën en foto's je in de app wilt zien.
                 </p>
             </div>
         </div>
@@ -276,9 +312,10 @@
         <div class="stap">
             <div class="stap-nummer">3</div>
             <div class="stap-inhoud">
-                <h3>Foto's maken</h3>
+                <h3>Maak je eigen foto's</h3>
                 <p>
-                    Begin met foto's maken.
+                    Fotografeer dingen uit jouw leven. Die foto's worden jouw persoonlijke
+                    woordenschat in WoW.
                 </p>
             </div>
         </div>
@@ -288,9 +325,10 @@
         <div class="stap">
             <div class="stap-nummer">4</div>
             <div class="stap-inhoud">
-                <h3>Dashboard</h3>
+                <h3>Bekijk het dashboard</h3>
                 <p>
-                    Ga naar het dashboard om de gemaakte foto's terug te zien.
+                    Open het dashboard. Daar zie je alle foto's die je hebt gemaakt
+                    en kun je ze ordenen.
                 </p>
             </div>
         </div>
@@ -298,7 +336,7 @@
 
     <!-- DEMO -->
     <section class="demo-sectie">
-        <h2>Bekijk hoe de app te werk gaat via deze animatie video</h2>
+        <h2>Bekijk WoW in actie</h2>
 
         <div style="max-width: 800px; margin: 0 auto;">
             <video controls style="width: 100%; border-radius: 12px; border: 3px solid #FFD600;">
@@ -314,24 +352,22 @@
 
         <div class="faq-item">
             <button class="faq-vraag">
-                Voor wie is COM in Beeld bedoeld?
+                Voor wie is WoW bedoeld?
                 <span class="faq-pijl">▼</span>
             </button>
             <div class="faq-antwoord">
-                COM in Beeld is bedoeld voor kinderen met een communicatiebeperking, zoals kinderen
-                met autisme, een spraak- of taalstoornis, of een verstandelijke beperking.
-                Ook begeleiders en ouders kunnen de software gebruiken.
+                WoW is gemaakt voor kinderen met autisme, een spraakstoornis of een verstandelijke
+                beperking. Begeleiders en ouders gebruiken de app ook, om te volgen wat een kind communiceert.
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-vraag">
-                Is COM in Beeld beschikbaar als app?
+                Is WoW beschikbaar als app?
                 <span class="faq-pijl">▼</span>
             </button>
             <div class="faq-antwoord">
-                Ja! COM in Beeld is een app die je kunt downloaden op je telefoon, tablet of iPad.
-                De app is beschikbaar voor zowel Android als iOS.
+                Je downloadt WoW op je telefoon, tablet of iPad. De app werkt op Android en iOS.
             </div>
         </div>
 
@@ -352,18 +388,17 @@
                 <span class="faq-pijl">▼</span>
             </button>
             <div class="faq-antwoord">
-                Neem contact met ons op via de
-                <a href="{{ route('contact') }}" style="color:#111111;font-weight:600;">contactpagina</a>.
-                Wij helpen je zo snel mogelijk verder.
+                Stuur een bericht via de <a href="{{ route('contact') }}" style="color:#111111;font-weight:600;">contactpagina</a>.
+                We reageren binnen een werkdag.
             </div>
         </div>
     </section>
 
     <!-- CTA -->
     <section class="uitleg-cta">
-        <h2>Vraag nu uw inloggegevens aan</h2>
-        <p>Neem contact met ons op om uw inloggegevens te ontvangen en start vandaag nog.</p>
-        <a href="{{ route('contact') }}" class="btn btn-dark">Inloggegevens aanvragen</a>
+        <h2>Wil je meer weten over WoW?</h2>
+        <p>Neem contact op met COM in Beeld Developers en doe mee.</p>
+        <a href="{{ route('contact') }}" class="btn btn-dark">Neem contact op</a>
     </section>
 
 @endsection

@@ -1,7 +1,8 @@
 {{-- Uitbreiden van de gedeelde layout --}}
 @extends('layouts.app')
 
-@section('title', 'Contact - COM in Beeld')
+@section('title', 'Contact – COM in Beeld')
+@section('meta_description', 'Neem contact op met COM in Beeld. Heb je een vraag over de communicatieapp? Stuur ons een bericht en we helpen je zo snel mogelijk verder.')
 
 @push('styles')
 <style>

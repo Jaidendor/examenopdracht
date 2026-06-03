@@ -17,6 +17,29 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 // Login verwerken (POST: verwerk het formulier)
 Route::post('/login', [AuthController::class, 'login']);
 
+// Sitemap voor zoekmachines
+Route::get('/sitemap.xml', function () {
+    $urls = [
+        ['loc' => route('home'),    'priority' => '1.0', 'changefreq' => 'weekly'],
+        ['loc' => route('uitleg'),  'priority' => '0.8', 'changefreq' => 'monthly'],
+        ['loc' => route('reviews'), 'priority' => '0.7', 'changefreq' => 'weekly'],
+        ['loc' => route('contact'), 'priority' => '0.6', 'changefreq' => 'monthly'],
+    ];
+
+    $xml = '<?xml version="1.0" encoding="UTF-8"?>';
+    $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+    foreach ($urls as $url) {
+        $xml .= '<url>';
+        $xml .= '<loc>'.$url['loc'].'</loc>';
+        $xml .= '<changefreq>'.$url['changefreq'].'</changefreq>';
+        $xml .= '<priority>'.$url['priority'].'</priority>';
+        $xml .= '</url>';
+    }
+    $xml .= '</urlset>';
+
+    return response($xml, 200)->header('Content-Type', 'application/xml');
+})->name('sitemap');
+
 // Uitlegpagina
 Route::get('/uitleg', function () {
     return view('uitleg');
